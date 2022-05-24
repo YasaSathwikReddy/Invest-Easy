@@ -1,0 +1,70 @@
+<div class="container mt-3 mb-1">
+    <%- include ("./partials/messages") %>
+</div>
+<main>
+    <section class="py-5 text-center container min-vh-100">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1><i class="uil uil-user"></i></h1>
+                <h2 class="fw-light">Hello <%= name %>!</h2>
+                <p class="lead text-muted">Thank you for logging-in investor! Now your clients will themselves connect you for their investments.</p>
+                <p class="text-primary fs-5">Just connect and conquer!</p>
+                <p>
+                    <a href="#requests" class="btn btn-primary my-2">Requests From Clients</a>
+                    <a href="/users/investor/profileEdit" class="btn btn-secondary my-2">Edit your profile</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Requests -->
+    <div id="requests">
+
+        <% if (clients.length === 0) { %>
+            <div class="container card-body bg-light text-center border rounded-3">
+                <p class="fs-3">Currently no investments are requested.</p>
+                <p class="fs-5">Please come back later :)</p>
+            </div>
+        <% } else { %>
+
+            <section class="container text-center mt-3 mb-4 border-bottom d-flex justify-content-between">
+                <h2 class="pb-3 fs-2">Requests from clients.</h2>
+            </section>
+
+            <% clients.forEach(client => { %>
+
+                <div class="container py-4">
+                    <div class="pt-1 pb-1 pl-5 pr-5 mb-4 bg-light rounded-3">
+                        <div class="container-fluid py-5">
+                            <h4 class=" fw-bold text-center mb-5">Client : <em><%= client.name %></em> </h4>
+                            <p class="col-md-8 fs-6"><Strong>Email :</Strong> <%= client.email %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Business / Startup Name :</Strong> <%= client.email %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Business Age :</Strong> <%= client.companyAge %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Domain :</Strong> <%= client.domain %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Funding Required :</Strong> <%= client.fundingType %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Bio/Description :</Strong> <%= client.description %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Address :</Strong> <%= client.address.address1 %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Address :</Strong> <%= client.address.address2 %> </p>
+                            <p class="col-md-8 fs-6"><Strong>City :</Strong> <%= client.address.city %> </p>
+                            <p class="col-md-8 fs-6"><Strong>State :</Strong> <%= client.address.state %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Zip :</Strong> <%= client.address.zip %> </p>
+    
+                            <form id="myform" method="post" action="/investorDashboard">
+                                <input type="email" name="email" value="<%= client.email %> " style="display: none;">
+                            </form>
+                            <a onclick="document.getElementById('myform').submit();" class="btn btn-primary btn-lg mt-3">Accept Request</a>
+                        </div>
+                    </div>
+                </div>
+    
+            <% }) %>
+        <% } %> 
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="container mt-3 mb-3 pb-3 pt-1 border-top pt-3">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2022 <em>Invest-Easy</em>, ltd.</p>
+</footer>

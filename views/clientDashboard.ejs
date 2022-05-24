@@ -1,0 +1,109 @@
+<main>
+    <section class="py-5 text-center container mb-5 border-bottom pb-3">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1><i class="uil uil-user"></i></h1>
+                <h2 class="fw-light">Hello <%= name %>!</h2>
+                <p class="lead text-muted">Thank you for choosing <strong><em>Invest-Easy</em></strong>, You have chosen a perfect application for your company's investments.</p>
+                <p class="text-primary fs-5">Now you just have to connect and conquer!</p>
+                <p>
+                    <a href="#investors" class="btn btn-primary my-2">Find Investors</a>
+                    <a href="/users/client/profileEdit" class="btn btn-secondary my-2">Edit your profile</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div id="investors" class="container mh-50 border-top pt-3 border rounded-3 card-body bg-light mb-5">
+
+        <header class="text-center mb-5 fs-1 border-bottom pb-3">
+            What type of investment are you looking for ?
+        </header>
+
+        <div class="container d-flex justify-content-around pb-5">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-primary btn-lg ml-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                Angel Investment
+            </button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                Crowd Investment
+            </button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-primary btn-lg mr-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                Seed Investment
+            </button>
+        </div>
+        <!-- Modal 1 -->
+        <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Angel Investors</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="p-3 mb-1 bg-light border rounded-3">
+                        <div class="container-fluid py-3">
+                            <p class="col-md-8 fs-5">If you want a single huge investment from huge investor, you may choose this type of investment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="/users/client/angel" class="btn btn-outline-primary btn-lg">Find now</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Modal 2 -->
+        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Crowd Investors</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="p-3 mb-1 bg-light border rounded-3">
+                        <div class="container-fluid py-3">
+                            <p class="col-md-8 fs-5">Of you want a number of multiple investment to be made for your company, you may choose this type of investment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="/users/client/crowd" class="btn btn-outline-primary btn-lg">Find now</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Modal 3 -->
+        <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Seed Investors</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="p-3 mb-1 bg-light border rounded-3">
+                        <div class="container-fluid py-3">
+                            <p class="col-md-8 fs-5">If your company is in the initial stages, then you may choose this type of investment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="/users/client/seed" class="btn btn-outline-primary btn-lg">Find now</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="container mt-3 mb-3 pb-3 pt-1 border-top pt-3">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2022 <em>Invest-Easy</em>, ltd.</p>
+</footer>

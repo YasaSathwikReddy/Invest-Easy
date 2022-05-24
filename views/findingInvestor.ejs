@@ -1,0 +1,58 @@
+<div class="container">
+
+    <section class="container text-center mt-3 mb-4 border-bottom d-flex justify-content-between">
+        <h2 class="pb-3 fs-2">Find <%= fund %> Investors below</h2>
+        <a href="/users/client/sentRequests" class="btn btn-outline-primary mt-1 mb-4">Accepted Requests</a>
+    </section>
+
+    <% if (investors.length > 0) { %>
+        <%- include ("./partials/messages") %>
+
+        <% investors.forEach(investor => { %>
+            
+            <main>
+                <div class="container py-4">
+                    <div class="pt-1 pb-1 pl-5 pr-5 mb-4 bg-light rounded-3">
+                        <div class="container-fluid py-5">
+                            <h4 class=" fw-bold text-center mb-5">Investor : <%= investor.name %> </h4>
+                            <p class="col-md-8 fs-6"><Strong>Funding Type :</Strong> <%= investor.fundingType %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Investment Range :</Strong> <%= investor.capabilities.minAmount %> to <%= investor.capabilities.maxAmount %> Rs. </p>
+                            <p class="col-md-8 fs-6"><Strong>Domain Preferences :</Strong> <%= investor.domainPreferences %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Mode of communication :</Strong> <%= (investor.contactMode).toUpperCase() %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Bio/Description :</Strong> <%= investor.description %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Address :</Strong> <%= investor.address.address1 %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Address :</Strong> <%= investor.address.address2 %> </p>
+                            <p class="col-md-8 fs-6"><Strong>City :</Strong> <%= investor.address.city %> </p>
+                            <p class="col-md-8 fs-6"><Strong>State :</Strong> <%= investor.address.state %> </p>
+                            <p class="col-md-8 fs-6"><Strong>Zip :</Strong> <%= investor.address.zip %> </p>
+
+                            <form id="myform" method="post" action="/users/client/<%= fund.toLowerCase() %>">
+                                <input type="email" name="email" value="<%= investor.email %>" style="display: none;">
+                            </form>
+                            <a onclick="document.getElementById('myform').submit();" class="btn btn-primary btn-lg mt-3">Send Request</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        <% }) %>
+
+    <% } else { %>
+        
+        <div class="container card-body bg-light text-center">
+            <p class="fs-3">Oops!...No Investors available.</p>
+            <p class="fs-5">Please come back later :)</p>
+            <a href="/" class="btn btn-outline-primary btn mt-1 mb-3">Go to Home</a>
+        </div>
+
+    <% } %>
+
+</div>
+
+<% if (investors.length > 1) { %>
+    <!-- FOOTER -->
+    <footer class="container mb-3 pb-3 pt-1">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>&copy; 2022 <em>Invest-Easy</em>, ltd.</p>
+    </footer>
+<% } %>
